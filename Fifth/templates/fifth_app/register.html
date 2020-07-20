@@ -1,0 +1,18 @@
+{% extends 'fifth_app/base.html' %}
+{% load static %}
+{% block body_block %}
+  <div class="jumnbotron">
+    {% if registered %}
+      <h1>Thankyou for Registration </h1>
+    {% else %}
+      <h1>Register Here </h1>
+      <h3>Fill the form</h3>
+      <form   enctype="multipart/form-data" method="POST">
+        {% csrf_token %}
+        {{ user_form.as_p }}
+        {{ profileform.as_p }}
+        <input type="submit" class="btn btn-primary" name="" value="Register">
+      </form>
+    {% endif %}
+  </div>
+{% endblock %}
